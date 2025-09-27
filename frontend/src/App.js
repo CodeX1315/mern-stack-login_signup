@@ -9,8 +9,8 @@ import RefreshHnadler from './RefreshHnadler';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const PrivateRoute = ({ Children }) => {
-    return isAuthenticated ? Children : <Navigate to="/login" />;
+  const PrivateRoute = ({ element }) => {
+    return isAuthenticated ? element : <Navigate to="/login" />;
   }
 
   return (
@@ -18,7 +18,7 @@ function App() {
       <RefreshHnadler setIsAuthenticated={setIsAuthenticated} />
       <Routes>
         <Route path='/' element={<Navigate to="/login" />}/>
-        <Route path='/home' element={<Home />}/>
+        <Route path='/home' element={<PrivateRoute element={<Home />} />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/signup' element={<Signup />}/>
       </Routes>
