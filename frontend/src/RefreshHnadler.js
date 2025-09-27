@@ -6,7 +6,7 @@ const RefreshHnadler = ({ setIsAuthenticated }) => {
   const navigate = useNavigate();
   
   useEffect(() => {
-    if(localStorage.getItem("token")){
+    if(localStorage.getItem('token')){
         setIsAuthenticated(true);
         if(location.pathname === "/login" || 
             location.pathname === "/signup" || 
@@ -16,7 +16,6 @@ const RefreshHnadler = ({ setIsAuthenticated }) => {
         }
   }, [location, navigate, setIsAuthenticated] )
 
-  return null;
   
 }
 

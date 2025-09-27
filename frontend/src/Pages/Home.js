@@ -30,7 +30,7 @@ const Home = () => {
                     'Authorization' : localStorage.getItem('token')
                 }
             }
-            const response = await fetch(url, { headers : headers} );
+            const response = await fetch(url, headers );
             const result = await response.json();
             console.log(result);
             setProducts(result);
